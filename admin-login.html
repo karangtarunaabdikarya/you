@@ -23,7 +23,7 @@
     <form id="loginForm">
       <div class="form-field">
         <label for="username">Username / Email</label>
-        <input type="text" id="username" name="username" placeholder="nama@abdikarya.org" required>
+        <input type="text" id="username" name="username" placeholder="admin" required>
       </div>
       <div class="form-field">
         <label for="password">Password</label>
@@ -32,6 +32,7 @@
       <label class="form-remember">
         <input type="checkbox" id="remember" style="width:auto;"> Ingat saya
       </label>
+      <p id="loginError" style="display:none;color:#C0392B;font-size:12.5px;font-weight:600;margin-bottom:14px;">Username atau password salah.</p>
       <button type="submit" class="btn btn-gold">Masuk Dashboard</button>
     </form>
 
@@ -43,14 +44,40 @@
 </div>
 
 <script>
-  // NOTE (implementasi produksi):
-  // Form ini adalah tampilan (UI) login. Validasi kredensial, hashing password,
-  // dan pengelolaan sesi HARUS dilakukan oleh backend (mis. Node/Express, Laravel, dsb.)
+  // =====================================================================
+  // CATATAN PENTING (baca sebelum dipakai produksi):
+  // Ini adalah kredensial DEMO yang ditulis langsung di kode (hardcoded).
+  // Siapa pun yang membuka "View Page Source" file ini bisa melihat
+  // username & password di bawah. JANGAN gunakan untuk situs publik
+  // sungguhan / data pengurus asli.
+  //
+  // Untuk produksi: validasi kredensial, hashing password, dan sesi
+  // HARUS dipindahkan ke backend (mis. Node/Express, Laravel, Supabase)
   // dengan endpoint API + cookie/session token yang aman (httpOnly, secure).
-  // Redirect di bawah ini hanya simulasi alur untuk keperluan prototipe front-end.
+  // =====================================================================
+  const DEMO_USERNAME = 'admin';
+  const DEMO_PASSWORD = 'abdikarya2026';
+
   document.getElementById('loginForm').addEventListener('submit', function(e){
     e.preventDefault();
-    window.location.href = 'admin-dashboard.html';
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const errorEl = document.getElementById('loginError');
+
+    if (username === DEMO_USERNAME && password === DEMO_PASSWORD) {
+      try {
+        sessionStorage.setItem('ak_auth', 'true');
+        sessionStorage.setItem('ak_user', username);
+      } catch (err) {
+        // sessionStorage tidak tersedia (mis. saat preview di dalam sandbox/iframe).
+        // Fitur proteksi otomatis tidak akan aktif; buka file ini langsung di
+        // browser (bukan dari dalam preview) agar sessionStorage berfungsi.
+        console.warn('sessionStorage tidak tersedia:', err);
+      }
+      window.location.href = 'admin-dashboard.html';
+    } else {
+      errorEl.style.display = 'block';
+    }
   });
 </script>
 </body>
