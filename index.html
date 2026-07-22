@@ -4,18 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karang Taruna Abdi Karya</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        header {
+            background-color: #001f3f;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover {
+            color: #ffcc00; /* Aksen kuning */
+        }
+        .cta-button {
+            background-color: #ffcc00;
+            padding: 8px 16px;
+            border-radius: 5px;
+            color: #001f3f;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #ffdb4d;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+            background-color: #001f3f;
+            color: #fff;
+        }
+        .hero-content {
+            max-width: 50%;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .hero-buttons a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Tentang Kami */
+        #about {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+        #about h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #about p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Program Kerja */
+        #program {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        #program h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .program-card {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Kalender Kegiatan */
+        #calendar {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+        .calendar-placeholder {
+            text-align: center;
+        }
+
+        /* Roadmap */
+        #roadmap {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Berita dan Dokumentasi */
+        #news {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        /* Pengajuan Surat */
+        #pengajuan {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Transparansi Organisasi */
+        #transparency {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        /* Kontak */
+        #contact {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #001f3f;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="#" class="logo">Abdi Karya</a>
+                <a href="#" class="logo">Karang Taruna Abdi Karya</a>
                 <ul class="nav-links">
                     <li><a href="#hero">Beranda</a></li>
-                    <li><a href="#program">Program</a></li>
                     <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#program">Program Kerja</a></li>
+                    <li><a href="#calendar">Kalender Kegiatan</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#news">Berita</a></li>
+                    <li><a href="#pengajuan">Pengajuan Surat</a></li>
+                    <li><a href="#transparency">Transparansi</a></li>
                     <li><a href="#contact">Kontak</a></li>
                     <li><a href="pengajuan.html" class="cta-button">Ajukan Surat</a></li>
                 </ul>
@@ -38,36 +228,33 @@
         </div>
     </section>
 
-    <!-- Statistik -->
-    <section id="statistics" class="statistics">
+    <!-- Tentang Kami -->
+    <section id="about">
         <div class="container">
-            <div class="stat-card">
-                <h3>6+</h3>
-                <p>Program Unggulan</p>
-            </div>
-            <div class="stat-card">
-                <h3>10</h3>
-                <p>Bidang Kerja</p>
-            </div>
-            <div class="stat-card">
-                <h3>12</h3>
-                <p>Agenda Tahunan</p>
-            </div>
-            <div class="stat-card">
-                <h3>50+</h3>
-                <p>Anggota Aktif</p>
-            </div>
+            <h2>Tentang Kami</h2>
+            <p>Karang Taruna Abdi Karya adalah organisasi kepemudaan Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus yang menjadi wadah bagi generasi muda untuk berkarya, berorganisasi, berkolaborasi, dan memberikan kontribusi nyata bagi masyarakat.</p>
+            <h3>Visi</h3>
+            <p>Menjadi organisasi kepemudaan desa yang aktif, solid, inovatif, berdampak, dan berkelanjutan dalam membangun potensi pemuda serta memberikan manfaat bagi masyarakat Desa Peganjaran.</p>
+            <h3>Misi</h3>
+            <ul>
+                <li>Membangun organisasi kepemudaan yang solid, aktif, tertata, dan berkelanjutan.</li>
+                <li>Mengembangkan potensi pemuda melalui olahraga, pendidikan, pelatihan, seni, budaya, dan kegiatan kreatif.</li>
+                <li>Meningkatkan kepedulian sosial dan semangat gotong royong di tengah masyarakat.</li>
+                <li>Mendorong pengembangan ekonomi pemuda dan UMKM desa.</li>
+                <li>Meningkatkan kepedulian terhadap lingkungan hidup.</li>
+                <li>Membangun kolaborasi dengan berbagai pihak.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Program Kami -->
-    <section id="program" class="program">
+    <!-- Program Kerja -->
+    <section id="program">
         <div class="container">
             <h2>Program Kami</h2>
             <div class="program-grid">
                 <div class="program-card">
                     <h3>Abdi Karya FC</h3>
-                    <p>Pembinaan sepak bola dan karakter anak-anak usia dini.</p>
+                    <p>Pembinaan sepak bola bagi anak-anak dan generasi muda.</p>
                 </div>
                 <div class="program-card">
                     <h3>Abdi Karya Peduli</h3>
@@ -75,21 +262,92 @@
                 </div>
                 <div class="program-card">
                     <h3>Abdi Karya Fest</h3>
-                    <p>Ruang ekspresi seni, budaya, kreativitas pemuda, UMKM, dan ekonomi kreatif.</p>
+                    <p>Festival tahunan untuk ekspresi seni dan budaya.</p>
                 </div>
                 <div class="program-card">
                     <h3>Bank Jelantah</h3>
-                    <p>Program lingkungan berbasis ekonomi sirkular dan pengembangan kemandirian organisasi.</p>
+                    <p>Program lingkungan dan pengembangan ekonomi organisasi.</p>
                 </div>
             </div>
             <a href="program.html" class="btn-primary">Lihat Semua Program</a>
         </div>
     </section>
 
+    <!-- Kalender Kegiatan -->
+    <section id="calendar">
+        <div class="container">
+            <h2>Kalender Kegiatan</h2>
+            <p>Kalender kegiatan interaktif untuk memudahkan pemuda dan masyarakat mengetahui agenda organisasi.</p>
+            <div class="calendar-placeholder">
+                <p>Kalender akan ditampilkan di sini.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap">
+        <div class="container">
+            <h2>Roadmap 5 Tahun</h2>
+            <ul>
+                <li><strong>Tahun 1:</strong> Konsolidasi dan penguatan struktur organisasi.</li>
+                <li><strong>Tahun 2:</strong> Pengembangan program pelatihan pemuda dan UMKM.</li>
+                <li><strong>Tahun 3:</strong> Kemandirian melalui unit usaha.</li>
+                <li><strong>Tahun 4:</strong> Kolaborasi dengan berbagai pihak.</li>
+                <li><strong>Tahun 5:</strong> Keberlanjutan dan regenerasi pengurus.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Berita dan Dokumentasi -->
+    <section id="news">
+        <div class="container">
+            <h2>Kabar Abdi Karya</h2>
+            <p>Berita terbaru dan dokumentasi kegiatan.</p>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3>Judul Berita</h3>
+                    <p>Deskripsi singkat tentang berita.</p>
+                    <a href="#" class="btn-secondary">Baca Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digitalisasi Pengajuan Surat -->
+    <section id="pengajuan">
+        <div class="container">
+            <h2>Pengajuan Surat</h2>
+            <p>Ajukan kebutuhan administrasi Anda secara lebih mudah melalui layanan digital.</p>
+            <a href="pengajuan.html" class="btn-primary">Ajukan Surat</a>
+        </div>
+    </section>
+
+    <!-- Transparansi Organisasi -->
+    <section id="transparency">
+        <div class="container">
+            <h2>Transparansi Organisasi</h2>
+            <p>Informasi tentang program yang sedang berjalan dan dampaknya.</p>
+            <div class="transparency-dashboard">
+                <p>Dashboard transparansi akan ditampilkan di sini.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact">
+        <div class="container">
+            <h2>Kontak Kami</h2>
+            <p>Untuk informasi lebih lanjut, silakan hubungi kami:</p>
+            <p>Email: <a href="mailto:karangtaruna@desamaju.id">karangtaruna@desamaju.id</a></p>
+            <p>Telepon: <a href="tel:+622112345678">(021) 1234-5678</a></p>
+            <p>Alamat: Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus</p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Karang Taruna Abdi Karya. Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus.</p>
+            <p>&copy; 2026 Karang Taruna Abdi Karya. Pemuda Bergerak. Desa Berdampak.</p>
         </div>
     </footer>
 </body>
