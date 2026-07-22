@@ -1,354 +1,843 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karang Taruna Abdi Karya</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karang Taruna Abdi Karya — Desa Peganjaran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;0,900;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sawah-dark:#1f3a1e;
+    --sawah:#3c6b2f;
+    --sawah-light:#7fa363;
+    --padi:#e2b23d;
+    --padi-light:#f2d488;
+    --liat:#b5502f;
+    --liat-dark:#8a3b21;
+    --senja:#20223a;
+    --cream:#f7f2e6;
+    --cream-deep:#efe6d1;
+    --ink:#20231e;
+    --paper-line:#d9cfb2;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    color:var(--sawah-dark);
+    line-height:1.15;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--liat-dark);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:2px;background:var(--liat);display:inline-block;
+  }
+  .container{max-width:1160px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--padi-light);}
 
-        /* Navbar */
-        header {
-            background-color: #001f3f;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar .logo {
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        .nav-links li a:hover {
-            color: #ffcc00; /* Aksen kuning */
-        }
-        .cta-button {
-            background-color: #ffcc00;
-            padding: 8px 16px;
-            border-radius: 5px;
-            color: #001f3f;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .cta-button:hover {
-            background-color: #ffdb4d;
-        }
+  /* woven divider motif — represents gotong royong (mutual weaving of effort) */
+  .woven{
+    height:26px;
+    width:100%;
+    background-image: repeating-linear-gradient(135deg, transparent 0 8px, var(--paper-line) 8px 9px, transparent 9px 20px),
+                       repeating-linear-gradient(45deg, transparent 0 8px, var(--paper-line) 8px 9px, transparent 9px 20px);
+    opacity:.6;
+  }
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 60px 20px;
-            background-color: #001f3f;
-            color: #fff;
-        }
-        .hero-content {
-            max-width: 50%;
-        }
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        .hero-buttons a {
-            display: inline-block;
-            margin-right: 10px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
+  /* ---------- NAVBAR ---------- */
+  header{
+    background:var(--senja);
+    position:sticky;top:0;z-index:1000;
+    border-bottom:3px solid var(--padi);
+  }
+  .navbar{display:flex;justify-content:space-between;align-items:center;padding:14px 0;}
+  .navbar .logo{
+    color:var(--cream);
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.25rem;
+    text-decoration:none;
+    display:flex;align-items:center;gap:10px;
+  }
+  .logo-mark{
+    width:32px;height:32px;flex-shrink:0;
+  }
+  .nav-links{list-style:none;display:flex;align-items:center;gap:26px;}
+  .nav-links li a{
+    color:#d9d6c9;text-decoration:none;font-size:.92rem;font-weight:500;
+    transition:color .2s;
+  }
+  .nav-links li a:hover{color:var(--padi);}
+  .cta-button{
+    background:var(--padi);
+    padding:9px 18px;
+    border-radius:999px;
+    color:var(--senja) !important;
+    font-weight:700;
+    text-decoration:none;
+    font-size:.88rem;
+    transition:background .2s, transform .2s;
+    white-space:nowrap;
+  }
+  .cta-button:hover{background:var(--padi-light);transform:translateY(-1px);}
+  .nav-toggle{display:none;background:none;border:0;color:var(--cream);font-size:1.5rem;cursor:pointer;}
 
-        /* Tentang Kami */
-        #about {
-            padding: 40px 20px;
-            background-color: #fff;
-        }
-        #about h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        #about p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
+  @media (max-width:900px){
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--senja);
+      flex-direction:column;align-items:flex-start;
+      padding:10px 24px 22px;
+      display:none;
+      gap:16px;
+      border-bottom:3px solid var(--padi);
+    }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:block;}
+  }
 
-        /* Program Kerja */
-        #program {
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-        }
-        #program h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .program-card {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .program-card:hover {
-            transform: translateY(-5px);
-        }
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(ellipse at 80% 20%, #2c4f27 0%, var(--sawah-dark) 55%, var(--senja) 100%);
+    color:var(--cream);
+    padding:90px 0 70px;
+    overflow:hidden;
+  }
+  .hero .container{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:40px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero-content h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.2rem);
+    color:var(--cream);
+    margin-bottom:22px;
+  }
+  .hero-content h1 em{
+    font-style:italic;color:var(--padi);
+  }
+  .hero-content p{
+    font-size:1.08rem;
+    color:#d9d6c9;
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--padi);color:var(--senja);
+    padding:13px 26px;border-radius:999px;font-weight:700;text-decoration:none;
+    transition:transform .2s, background .2s;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px);background:var(--padi-light);}
+  .btn-secondary{
+    border:1.5px solid rgba(247,242,230,.5);color:var(--cream);
+    padding:12px 24px;border-radius:999px;font-weight:600;text-decoration:none;
+    transition:border-color .2s, background .2s;
+    display:inline-block;
+  }
+  .btn-secondary:hover{border-color:var(--padi);background:rgba(247,242,230,.06);}
 
-        /* Kalender Kegiatan */
-        #calendar {
-            padding: 40px 20px;
-            background-color: #fff;
-        }
-        .calendar-placeholder {
-            text-align: center;
-        }
+  .hero-stats{
+    display:flex;gap:28px;margin-top:40px;flex-wrap:wrap;
+  }
+  .hero-stats div{border-left:2px solid var(--padi);padding-left:12px;}
+  .hero-stats strong{
+    display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--padi-light);
+  }
+  .hero-stats span{font-size:.8rem;color:#c8c5b8;}
 
-        /* Roadmap */
-        #roadmap {
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-        }
+  /* rice-field SVG scene */
+  .hero-scene{position:relative;}
+  .hero-scene svg{width:100%;height:auto;}
 
-        /* Berita dan Dokumentasi */
-        #news {
-            padding: 40px 20px;
-            background-color: #fff;
-        }
+  /* ---------- SECTION SHELLS ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head p{color:#4a4a3f;font-size:1.02rem;}
+  #about{background:var(--cream);}
+  #program{background:var(--cream-deep);}
+  #calendar{background:var(--cream);}
+  #roadmap{background:var(--senja);color:var(--cream);}
+  #roadmap h2, #roadmap .eyebrow{color:var(--cream);}
+  #roadmap .eyebrow::before{background:var(--padi);}
+  #roadmap .section-head p{color:#c8c5b8;}
+  #news{background:var(--cream-deep);}
+  #pengajuan{background:var(--sawah-dark);color:var(--cream);}
+  #pengajuan h2{color:var(--cream);}
+  #transparency{background:var(--cream);}
+  #contact{background:var(--cream-deep);}
 
-        /* Pengajuan Surat */
-        #pengajuan {
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-        }
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .about-grid p{color:#4a4a3f;margin-bottom:16px;}
+  .vismis{display:flex;flex-direction:column;gap:20px;}
+  .vismis-card{
+    background:#fff;border:1px solid var(--paper-line);
+    border-radius:var(--radius);padding:22px 24px;
+    border-left:4px solid var(--sawah);
+  }
+  .vismis-card.misi{border-left-color:var(--liat);}
+  .vismis-card h3{font-size:1.05rem;margin-bottom:10px;}
+  .vismis-card ul{padding-left:20px;color:#4a4a3f;font-size:.95rem;}
+  .vismis-card li{margin-bottom:6px;}
 
-        /* Transparansi Organisasi */
-        #transparency {
-            padding: 40px 20px;
-            background-color: #fff;
-        }
+  /* ---------- PROGRAM CARDS ---------- */
+  .program-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:22px;
+  }
+  .program-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:26px 24px;
+    border:1px solid var(--paper-line);
+    transition:transform .25s, box-shadow .25s;
+    position:relative;
+  }
+  .program-card:hover{transform:translateY(-6px);box-shadow:0 16px 30px -14px rgba(31,58,30,.35);}
+  .program-icon{width:46px;height:46px;margin-bottom:16px;}
+  .program-card h3{font-size:1.1rem;margin-bottom:8px;}
+  .program-card p{font-size:.92rem;color:#4a4a3f;}
+  .program-tag{
+    font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--sawah);
+    letter-spacing:.06em;text-transform:uppercase;margin-top:12px;display:block;
+  }
+  .see-all{
+    margin-top:34px;text-align:center;
+  }
 
-        /* Kontak */
-        #contact {
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-        }
+  /* ---------- CALENDAR ---------- */
+  .calendar-wrap{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:start;
+  }
+  .cal-card{
+    background:#fff;border:1px solid var(--paper-line);border-radius:var(--radius);
+    padding:22px;
+  }
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .cal-head h4{font-size:1.15rem;color:var(--sawah-dark);}
+  .cal-nav{display:flex;gap:8px;}
+  .cal-nav button{
+    background:var(--cream-deep);border:1px solid var(--paper-line);border-radius:8px;
+    width:34px;height:34px;font-size:1rem;cursor:pointer;color:var(--sawah-dark);
+    transition:background .2s;
+  }
+  .cal-nav button:hover{background:var(--padi-light);}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center;}
+  .cal-dow{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#8a8672;padding-bottom:6px;text-transform:uppercase;}
+  .cal-day{
+    aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+    border-radius:8px;font-size:.88rem;color:var(--ink);cursor:default;position:relative;
+  }
+  .cal-day.blank{visibility:hidden;}
+  .cal-day.has-event{cursor:pointer;font-weight:700;background:var(--cream-deep);}
+  .cal-day.has-event::after{
+    content:"";position:absolute;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--liat);
+  }
+  .cal-day.has-event:hover, .cal-day.selected{background:var(--padi);color:var(--senja);}
+  .cal-day.today{border:1.5px solid var(--sawah);}
 
-        /* Footer */
-        footer {
-            background-color: #001f3f;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-        footer p {
-            margin: 0;
-        }
-    </style>
+  .event-panel h4{font-size:1.05rem;margin-bottom:14px;color:var(--sawah-dark);}
+  .event-item{
+    display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--paper-line);
+  }
+  .event-item:last-child{border-bottom:none;}
+  .event-date{
+    font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--liat);
+    min-width:46px;font-size:.9rem;
+  }
+  .event-detail h5{font-size:.95rem;margin-bottom:3px;color:var(--sawah-dark);}
+  .event-detail span{font-size:.8rem;color:#726f5f;}
+  .event-empty{color:#8a8672;font-size:.9rem;font-style:italic;}
+
+  /* ---------- ROADMAP DIAGRAM ---------- */
+  .roadmap-scroll{overflow-x:auto;padding-bottom:10px;}
+  .roadmap-svg{min-width:920px;width:100%;height:auto;}
+  .roadmap-legend{
+    display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;font-size:.85rem;color:#c8c5b8;
+  }
+  .roadmap-legend span{display:flex;align-items:center;gap:8px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+  /* ---------- NEWS ---------- */
+  .news-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(260px,1fr));gap:22px;}
+  .news-card{
+    background:#fff;border:1px solid var(--paper-line);border-radius:var(--radius);overflow:hidden;
+    transition:transform .25s;
+  }
+  .news-card:hover{transform:translateY(-5px);}
+  .news-thumb{
+    height:150px;
+    background:linear-gradient(135deg, var(--sawah) 0%, var(--sawah-dark) 100%);
+    position:relative;
+  }
+  .news-thumb svg{position:absolute;inset:0;width:100%;height:100%;}
+  .news-body{padding:20px;}
+  .news-date{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--liat);letter-spacing:.05em;}
+  .news-card h3{font-size:1.02rem;margin:8px 0 8px;}
+  .news-card p{font-size:.88rem;color:#4a4a3f;margin-bottom:14px;}
+  .news-card a{font-size:.85rem;font-weight:700;color:var(--sawah);text-decoration:none;}
+  .news-card a:hover{text-decoration:underline;}
+
+  /* ---------- PENGAJUAN ---------- */
+  .pengajuan-inner{
+    display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;
+  }
+  .pengajuan-inner p{color:#d9d6c9;max-width:50ch;}
+  .pengajuan-steps{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap;}
+  .pengajuan-steps div{
+    font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--padi-light);
+    border:1px solid rgba(247,242,230,.3);border-radius:999px;padding:6px 14px;
+  }
+
+  /* ---------- TRANSPARENCY ---------- */
+  .transparency-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  .dash-note{font-size:.82rem;color:#8a8672;font-style:italic;margin-top:10px;}
+  .dash-legend{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+  .dash-legend .row{display:flex;align-items:center;gap:10px;font-size:.92rem;}
+  .dash-legend .row strong{margin-left:auto;font-family:'JetBrains Mono',monospace;color:var(--sawah-dark);}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .contact-card{
+    background:#fff;border:1px solid var(--paper-line);border-radius:var(--radius);padding:26px;
+  }
+  .contact-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+  .contact-row .icon{
+    width:36px;height:36px;border-radius:10px;background:var(--cream-deep);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--sawah);
+  }
+  .contact-row a, .contact-row span{font-size:.95rem;text-decoration:none;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--senja);color:#c8c5b8;padding:34px 0;text-align:center;}
+  footer strong{color:var(--padi);}
+
+  @media (max-width:860px){
+    .hero .container{grid-template-columns:1fr;}
+    .hero-scene{order:-1;max-width:340px;margin:0 auto 20px;}
+    .about-grid, .calendar-wrap, .transparency-grid, .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="#" class="logo">Karang Taruna Abdi Karya</a>
-                <ul class="nav-links">
-                    <li><a href="#hero">Beranda</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#program">Program Kerja</a></li>
-                    <li><a href="#calendar">Kalender Kegiatan</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
-                    <li><a href="#news">Berita</a></li>
-                    <li><a href="#pengajuan">Pengajuan Surat</a></li>
-                    <li><a href="#transparency">Transparansi</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                    <li><a href="pengajuan.html" class="cta-button">Ajukan Surat</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Bersama Pemuda, Berkarya untuk Desa</h1>
-            <p>Karang Taruna Abdi Karya hadir sebagai ruang kolaborasi, pengabdian, kreativitas, dan pengembangan potensi pemuda Desa Peganjaran.</p>
-            <div class="hero-buttons">
-                <a href="#about" class="btn-primary">Kenali Abdi Karya</a>
-                <a href="pengajuan.html" class="btn-secondary">Ajukan Surat</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="images/hero-image.jpg" alt="Kegiatan Karang Taruna">
-        </div>
-    </section>
+<header>
+  <div class="container navbar">
+    <a href="#hero" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="#e2b23d" stroke-width="2"/>
+        <path d="M20 8 C20 8 12 16 12 24 C12 29 15.5 32 20 32 C24.5 32 28 29 28 24 C28 16 20 8 20 8Z" fill="#e2b23d"/>
+        <path d="M20 14V28" stroke="#20223a" stroke-width="1.4"/>
+      </svg>
+      Abdi Karya
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Beranda</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#calendar">Kalender</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#news">Berita</a></li>
+      <li><a href="#transparency">Transparansi</a></li>
+      <li><a href="#contact">Kontak</a></li>
+      <li><a href="#pengajuan" class="cta-button">Ajukan Surat</a></li>
+    </ul>
+  </div>
+</header>
 
-    <!-- Tentang Kami -->
-    <section id="about">
-        <div class="container">
-            <h2>Tentang Kami</h2>
-            <p>Karang Taruna Abdi Karya adalah organisasi kepemudaan Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus yang menjadi wadah bagi generasi muda untuk berkarya, berorganisasi, berkolaborasi, dan memberikan kontribusi nyata bagi masyarakat.</p>
-            <h3>Visi</h3>
-            <p>Menjadi organisasi kepemudaan desa yang aktif, solid, inovatif, berdampak, dan berkelanjutan dalam membangun potensi pemuda serta memberikan manfaat bagi masyarakat Desa Peganjaran.</p>
-            <h3>Misi</h3>
-            <ul>
-                <li>Membangun organisasi kepemudaan yang solid, aktif, tertata, dan berkelanjutan.</li>
-                <li>Mengembangkan potensi pemuda melalui olahraga, pendidikan, pelatihan, seni, budaya, dan kegiatan kreatif.</li>
-                <li>Meningkatkan kepedulian sosial dan semangat gotong royong di tengah masyarakat.</li>
-                <li>Mendorong pengembangan ekonomi pemuda dan UMKM desa.</li>
-                <li>Meningkatkan kepedulian terhadap lingkungan hidup.</li>
-                <li>Membangun kolaborasi dengan berbagai pihak.</li>
-            </ul>
-        </div>
-    </section>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow" style="color:var(--padi-light)">Desa Peganjaran · Kec. Bae · Kudus</div>
+      <h1>Bersama Pemuda,<br><em>Berkarya</em> untuk Desa</h1>
+      <p>Karang Taruna Abdi Karya adalah ruang kolaborasi, pengabdian, dan kreativitas bagi generasi muda Peganjaran — dari lapangan bola, sedekah Subuh, hingga bank minyak jelantah.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn-primary">Kenali Abdi Karya</a>
+        <a href="#pengajuan" class="btn-secondary">Ajukan Surat</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>4</strong><span>program aktif</span></div>
+        <div><strong>5</strong><span>tahun roadmap</span></div>
+        <div><strong>1</strong><span>desa, satu tujuan</span></div>
+      </div>
+    </div>
+    <div class="hero-scene">
+      <svg viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e2b23d" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#e2b23d" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <circle cx="330" cy="60" r="50" fill="url(#skyGrad)"/>
+        <circle cx="330" cy="60" r="26" fill="#f2d488"/>
+        <!-- terraced sawah -->
+        <path d="M0 210 L420 180 L420 230 L0 260 Z" fill="#4a7a37"/>
+        <path d="M0 260 L420 230 L420 285 L0 310 Z" fill="#3c6b2f"/>
+        <path d="M0 310 L420 285 L420 345 L0 370 Z" fill="#2d5522"/>
+        <!-- rice rows -->
+        <g stroke="#274a1f" stroke-width="2" opacity=".5">
+          <path d="M10 245 L410 216"/><path d="M10 270 L410 240"/>
+          <path d="M10 295 L410 268"/><path d="M10 320 L410 295"/>
+          <path d="M10 345 L410 322"/>
+        </g>
+        <!-- huts -->
+        <g transform="translate(60,150)">
+          <polygon points="0,40 30,10 60,40" fill="#8a3b21"/>
+          <rect x="10" y="40" width="40" height="30" fill="#f2d488"/>
+        </g>
+        <g transform="translate(180,168)">
+          <polygon points="0,32 24,8 48,32" fill="#b5502f"/>
+          <rect x="8" y="32" width="32" height="24" fill="#e8dcc0"/>
+        </g>
+        <!-- birds -->
+        <g stroke="#20223a" stroke-width="2" fill="none" opacity=".6">
+          <path d="M60 60 q8 -10 16 0 q8 -10 16 0"/>
+          <path d="M110 90 q6 -8 12 0 q6 -8 12 0"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
 
-    <!-- Program Kerja -->
-    <section id="program">
-        <div class="container">
-            <h2>Program Kami</h2>
-            <div class="program-grid">
-                <div class="program-card">
-                    <h3>Abdi Karya FC</h3>
-                    <p>Pembinaan sepak bola bagi anak-anak dan generasi muda.</p>
-                </div>
-                <div class="program-card">
-                    <h3>Abdi Karya Peduli</h3>
-                    <p>Program sosial dan kepedulian masyarakat yang dikembangkan dari Sedekah Subuh.</p>
-                </div>
-                <div class="program-card">
-                    <h3>Abdi Karya Fest</h3>
-                    <p>Festival tahunan untuk ekspresi seni dan budaya.</p>
-                </div>
-                <div class="program-card">
-                    <h3>Bank Jelantah</h3>
-                    <p>Program lingkungan dan pengembangan ekonomi organisasi.</p>
-                </div>
-            </div>
-            <a href="program.html" class="btn-primary">Lihat Semua Program</a>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Tentang Kami</div>
+      <h2>Wadah Pemuda Peganjaran</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>Karang Taruna Abdi Karya adalah organisasi kepemudaan Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus yang menjadi wadah bagi generasi muda untuk berkarya, berorganisasi, berkolaborasi, dan memberikan kontribusi nyata bagi masyarakat.</p>
+        <p>Kami percaya perubahan desa dimulai dari pemuda yang solid — bukan bekerja sendiri-sendiri, tapi menenun setiap program menjadi satu gerakan yang berkelanjutan.</p>
+      </div>
+      <div class="vismis">
+        <div class="vismis-card">
+          <h3>Visi</h3>
+          <p style="color:#4a4a3f;font-size:.95rem;">Menjadi organisasi kepemudaan desa yang aktif, solid, inovatif, berdampak, dan berkelanjutan dalam membangun potensi pemuda serta memberikan manfaat bagi masyarakat Desa Peganjaran.</p>
         </div>
-    </section>
+        <div class="vismis-card misi">
+          <h3>Misi</h3>
+          <ul>
+            <li>Membangun organisasi kepemudaan yang solid, aktif, tertata, dan berkelanjutan.</li>
+            <li>Mengembangkan potensi pemuda melalui olahraga, pendidikan, pelatihan, seni, dan budaya.</li>
+            <li>Meningkatkan kepedulian sosial dan semangat gotong royong.</li>
+            <li>Mendorong pengembangan ekonomi pemuda dan UMKM desa.</li>
+            <li>Meningkatkan kepedulian terhadap lingkungan hidup.</li>
+            <li>Membangun kolaborasi dengan berbagai pihak.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Kalender Kegiatan -->
-    <section id="calendar">
-        <div class="container">
-            <h2>Kalender Kegiatan</h2>
-            <p>Kalender kegiatan interaktif untuk memudahkan pemuda dan masyarakat mengetahui agenda organisasi.</p>
-            <div class="calendar-placeholder">
-                <p>Kalender akan ditampilkan di sini.</p>
-            </div>
-        </div>
-    </section>
+<!-- PROGRAM -->
+<section id="program">
+  <div class="container">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow" style="justify-content:center;">Program Kerja</div>
+      <h2>Empat Jalan Kami Berkarya</h2>
+    </div>
+    <div class="program-grid">
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#3c6b2f"/><path d="M24 12l6 4-2 7-8 0-2-7 6-4z" fill="#f7f2e6"/><path d="M14 22l4 8M34 22l-4 8" stroke="#f7f2e6" stroke-width="2"/></svg>
+        <h3>Abdi Karya FC</h3>
+        <p>Pembinaan sepak bola bagi anak-anak dan generasi muda desa, dari latihan rutin hingga tanding persahabatan.</p>
+        <span class="program-tag">Olahraga · Pembinaan</span>
+      </div>
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#b5502f"/><path d="M24 30c-6-4-10-8-10-13a5 5 0 019-3 5 5 0 019 3c0 5-4 9-8 13z" fill="#f7f2e6"/></svg>
+        <h3>Abdi Karya Peduli</h3>
+        <p>Program sosial dan kepedulian masyarakat yang tumbuh dari gerakan Sedekah Subuh.</p>
+        <span class="program-tag">Sosial · Kepedulian</span>
+      </div>
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#e2b23d"/><path d="M14 30V18l10-6 10 6v12" stroke="#20223a" stroke-width="2" fill="none"/><circle cx="24" cy="24" r="4" fill="#20223a"/></svg>
+        <h3>Abdi Karya Fest</h3>
+        <p>Festival tahunan untuk ekspresi seni, budaya, dan kreativitas pemuda desa.</p>
+        <span class="program-tag">Seni · Budaya</span>
+      </div>
+      <div class="program-card">
+        <svg class="program-icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" fill="#1f3a1e"/><path d="M24 14c5 6 8 10 8 14a8 8 0 01-16 0c0-4 3-8 8-14z" fill="#e2b23d"/></svg>
+        <h3>Bank Jelantah</h3>
+        <p>Program lingkungan sekaligus mesin ekonomi organisasi, mengubah minyak bekas jadi manfaat.</p>
+        <span class="program-tag">Lingkungan · Ekonomi</span>
+      </div>
+    </div>
+    <div class="see-all"><a href="program.html" class="btn-primary" style="background:var(--sawah-dark);color:var(--cream);">Lihat Semua Program</a></div>
+  </div>
+</section>
 
-    <!-- Roadmap -->
-    <section id="roadmap">
-        <div class="container">
-            <h2>Roadmap 5 Tahun</h2>
-            <ul>
-                <li><strong>Tahun 1:</strong> Konsolidasi dan penguatan struktur organisasi.</li>
-                <li><strong>Tahun 2:</strong> Pengembangan program pelatihan pemuda dan UMKM.</li>
-                <li><strong>Tahun 3:</strong> Kemandirian melalui unit usaha.</li>
-                <li><strong>Tahun 4:</strong> Kolaborasi dengan berbagai pihak.</li>
-                <li><strong>Tahun 5:</strong> Keberlanjutan dan regenerasi pengurus.</li>
-            </ul>
+<!-- CALENDAR -->
+<section id="calendar">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Kalender Kegiatan</div>
+      <h2>Agenda Bulan Ini</h2>
+      <p>Pantau jadwal latihan, aksi sosial, dan pertemuan pengurus. Klik tanggal bertanda untuk detail kegiatan.</p>
+    </div>
+    <div class="calendar-wrap">
+      <div class="cal-card">
+        <div class="cal-head">
+          <h4 id="calMonthLabel">Juli 2026</h4>
+          <div class="cal-nav">
+            <button id="calPrev" aria-label="Bulan sebelumnya">‹</button>
+            <button id="calNext" aria-label="Bulan berikutnya">›</button>
+          </div>
         </div>
-    </section>
+        <div class="cal-grid" id="calDows"></div>
+        <div class="cal-grid" id="calDays" style="margin-top:6px;"></div>
+      </div>
+      <div class="cal-card event-panel">
+        <h4>Kegiatan Terdekat</h4>
+        <div id="eventList"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Berita dan Dokumentasi -->
-    <section id="news">
-        <div class="container">
-            <h2>Kabar Abdi Karya</h2>
-            <p>Berita terbaru dan dokumentasi kegiatan.</p>
-            <div class="news-grid">
-                <div class="news-card">
-                    <h3>Judul Berita</h3>
-                    <p>Deskripsi singkat tentang berita.</p>
-                    <a href="#" class="btn-secondary">Baca Selengkapnya</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Roadmap</div>
+      <h2>Lima Tahun Menuju Kemandirian</h2>
+      <p>Seperti padi yang ditanam, disemai, hingga dipanen — perjalanan organisasi kami bertumbuh bertahap, bukan instan.</p>
+    </div>
+    <div class="roadmap-scroll">
+      <svg class="roadmap-svg" viewBox="0 0 1000 260" xmlns="http://www.w3.org/2000/svg">
+        <line x1="40" y1="150" x2="960" y2="150" stroke="#3c6b2f" stroke-width="2" stroke-dasharray="2 8"/>
+        <!-- Year 1: sprout -->
+        <g transform="translate(80,150)">
+          <line x1="0" y1="0" x2="0" y2="-30" stroke="#7fa363" stroke-width="3"/>
+          <ellipse cx="-6" cy="-28" rx="10" ry="5" fill="#7fa363" transform="rotate(-30 -6 -28)"/>
+          <ellipse cx="6" cy="-24" rx="9" ry="4.5" fill="#7fa363" transform="rotate(20 6 -24)"/>
+          <circle r="4" fill="#e2b23d"/>
+          <text y="34" text-anchor="middle" fill="#e2b23d" font-family="JetBrains Mono" font-size="13" font-weight="700">TAHUN 1</text>
+          <text y="54" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">Konsolidasi &amp;</text>
+          <text y="70" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">penguatan struktur</text>
+        </g>
+        <!-- Year 2: taller stalk -->
+        <g transform="translate(300,150)">
+          <line x1="0" y1="0" x2="0" y2="-55" stroke="#7fa363" stroke-width="3"/>
+          <ellipse cx="-8" cy="-45" rx="12" ry="6" fill="#7fa363" transform="rotate(-30 -8 -45)"/>
+          <ellipse cx="8" cy="-38" rx="11" ry="5.5" fill="#7fa363" transform="rotate(20 8 -38)"/>
+          <ellipse cx="-7" cy="-25" rx="10" ry="5" fill="#7fa363" transform="rotate(-25 -7 -25)"/>
+          <circle r="4" fill="#e2b23d"/>
+          <text y="34" text-anchor="middle" fill="#e2b23d" font-family="JetBrains Mono" font-size="13" font-weight="700">TAHUN 2</text>
+          <text y="54" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">Pelatihan pemuda</text>
+          <text y="70" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">&amp; UMKM</text>
+        </g>
+        <!-- Year 3: grain forming -->
+        <g transform="translate(500,150)">
+          <line x1="0" y1="0" x2="0" y2="-80" stroke="#e2b23d" stroke-width="3"/>
+          <ellipse cx="-9" cy="-65" rx="13" ry="6.5" fill="#7fa363" transform="rotate(-30 -9 -65)"/>
+          <ellipse cx="9" cy="-56" rx="12" ry="6" fill="#7fa363" transform="rotate(20 9 -56)"/>
+          <ellipse cx="0" cy="-84" rx="10" ry="20" fill="#f2d488" transform="rotate(0 0 -84)"/>
+          <circle r="4" fill="#e2b23d"/>
+          <text y="34" text-anchor="middle" fill="#e2b23d" font-family="JetBrains Mono" font-size="13" font-weight="700">TAHUN 3</text>
+          <text y="54" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">Kemandirian lewat</text>
+          <text y="70" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">unit usaha</text>
+        </g>
+        <!-- Year 4: full grain, bowing -->
+        <g transform="translate(700,150)">
+          <path d="M0 0 C -4 -40, 6 -70, 22 -95" stroke="#e2b23d" stroke-width="3" fill="none"/>
+          <ellipse cx="-8" cy="-55" rx="12" ry="6" fill="#7fa363" transform="rotate(-30 -8 -55)"/>
+          <ellipse cx="22" cy="-95" rx="11" ry="22" fill="#e2b23d" transform="rotate(18 22 -95)"/>
+          <circle r="4" fill="#e2b23d"/>
+          <text y="34" text-anchor="middle" fill="#e2b23d" font-family="JetBrains Mono" font-size="13" font-weight="700">TAHUN 4</text>
+          <text y="54" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">Kolaborasi dengan</text>
+          <text y="70" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">berbagai pihak</text>
+        </g>
+        <!-- Year 5: harvest -->
+        <g transform="translate(900,150)">
+          <path d="M0 -4h34a6 6 0 016 6v8a6 6 0 01-6 6H0z" fill="#8a3b21"/>
+          <ellipse cx="10" cy="-14" rx="9" ry="16" fill="#e2b23d" transform="rotate(-20 10 -14)"/>
+          <ellipse cx="24" cy="-16" rx="9" ry="16" fill="#f2d488" transform="rotate(15 24 -16)"/>
+          <circle r="4" fill="#e2b23d"/>
+          <text y="34" text-anchor="middle" fill="#e2b23d" font-family="JetBrains Mono" font-size="13" font-weight="700">TAHUN 5</text>
+          <text y="54" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">Keberlanjutan &amp;</text>
+          <text y="70" text-anchor="middle" fill="#c8c5b8" font-family="Plus Jakarta Sans" font-size="12">regenerasi pengurus</text>
+        </g>
+      </svg>
+    </div>
+    <div class="roadmap-legend">
+      <span><span class="dot" style="background:#7fa363;"></span>Fase tumbuh</span>
+      <span><span class="dot" style="background:#e2b23d;"></span>Fase berbuah</span>
+      <span><span class="dot" style="background:#8a3b21;"></span>Fase panen &amp; regenerasi</span>
+    </div>
+  </div>
+</section>
 
-    <!-- Digitalisasi Pengajuan Surat -->
-    <section id="pengajuan">
-        <div class="container">
-            <h2>Pengajuan Surat</h2>
-            <p>Ajukan kebutuhan administrasi Anda secara lebih mudah melalui layanan digital.</p>
-            <a href="pengajuan.html" class="btn-primary">Ajukan Surat</a>
+<!-- NEWS -->
+<section id="news">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Kabar Abdi Karya</div>
+      <h2>Berita &amp; Dokumentasi</h2>
+      <p>Contoh tampilan kartu berita — ganti dengan liputan kegiatan terbaru saat konten tersedia.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-thumb">
+          <svg viewBox="0 0 260 150"><circle cx="30" cy="30" r="60" fill="#4a7a37"/><circle cx="230" cy="120" r="50" fill="#2d5522"/></svg>
         </div>
-    </section>
+        <div class="news-body">
+          <span class="news-date">CONTOH · 12 JUL 2026</span>
+          <h3>Turnamen Persahabatan Abdi Karya FC</h3>
+          <p>Ringkasan kegiatan latihan dan tanding persahabatan antar dusun.</p>
+          <a href="#">Baca selengkapnya →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb">
+          <svg viewBox="0 0 260 150"><rect width="260" height="150" fill="#8a3b21"/><circle cx="200" cy="40" r="40" fill="#e2b23d"/></svg>
+        </div>
+        <div class="news-body">
+          <span class="news-date">CONTOH · 05 JUL 2026</span>
+          <h3>Sedekah Subuh Edisi Juli</h3>
+          <p>Dokumentasi pembagian bantuan mingguan kepada warga sekitar.</p>
+          <a href="#">Baca selengkapnya →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-thumb">
+          <svg viewBox="0 0 260 150"><rect width="260" height="150" fill="#1f3a1e"/><path d="M0 100 L260 60 L260 150 L0 150Z" fill="#3c6b2f"/></svg>
+        </div>
+        <div class="news-body">
+          <span class="news-date">CONTOH · 28 JUN 2026</span>
+          <h3>Setor Perdana Bank Jelantah</h3>
+          <p>Catatan hasil pengumpulan minyak jelantah tahap pertama.</p>
+          <a href="#">Baca selengkapnya →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Transparansi Organisasi -->
-    <section id="transparency">
-        <div class="container">
-            <h2>Transparansi Organisasi</h2>
-            <p>Informasi tentang program yang sedang berjalan dan dampaknya.</p>
-            <div class="transparency-dashboard">
-                <p>Dashboard transparansi akan ditampilkan di sini.</p>
-            </div>
-        </div>
-    </section>
+<!-- PENGAJUAN -->
+<section id="pengajuan">
+  <div class="container pengajuan-inner">
+    <div>
+      <div class="eyebrow" style="color:var(--padi-light)">Layanan Digital</div>
+      <h2>Pengajuan Surat</h2>
+      <p>Ajukan kebutuhan administrasi — surat keterangan, rekomendasi kegiatan, atau proposal — secara digital tanpa perlu datang berkali-kali.</p>
+      <div class="pengajuan-steps">
+        <div>1. Isi formulir</div>
+        <div>2. Verifikasi pengurus</div>
+        <div>3. Surat terbit</div>
+      </div>
+    </div>
+    <a href="pengajuan.html" class="btn-primary">Ajukan Surat Sekarang</a>
+  </div>
+</section>
 
-    <!-- Kontak -->
-    <section id="contact">
-        <div class="container">
-            <h2>Kontak Kami</h2>
-            <p>Untuk informasi lebih lanjut, silakan hubungi kami:</p>
-            <p>Email: <a href="mailto:karangtaruna@desamaju.id">karangtaruna@desamaju.id</a></p>
-            <p>Telepon: <a href="tel:+622112345678">(021) 1234-5678</a></p>
-            <p>Alamat: Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus</p>
+<!-- TRANSPARENCY -->
+<section id="transparency">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Transparansi Organisasi</div>
+      <h2>Alokasi Fokus Program</h2>
+      <p>Gambaran umum pembagian perhatian organisasi antar bidang program berjalan.</p>
+    </div>
+    <div class="transparency-grid">
+      <svg viewBox="0 0 240 240" width="260" height="260" style="margin:0 auto;">
+        <circle r="80" cx="120" cy="120" fill="none" stroke="#efe6d1" stroke-width="30"/>
+        <circle r="80" cx="120" cy="120" fill="none" stroke="#3c6b2f" stroke-width="30"
+          stroke-dasharray="150.8 351.9" stroke-dashoffset="0" transform="rotate(-90 120 120)"/>
+        <circle r="80" cx="120" cy="120" fill="none" stroke="#e2b23d" stroke-width="30"
+          stroke-dasharray="100.5 351.9" stroke-dashoffset="-150.8" transform="rotate(-90 120 120)"/>
+        <circle r="80" cx="120" cy="120" fill="none" stroke="#b5502f" stroke-width="30"
+          stroke-dasharray="75.4 351.9" stroke-dashoffset="-251.3" transform="rotate(-90 120 120)"/>
+        <circle r="80" cx="120" cy="120" fill="none" stroke="#1f3a1e" stroke-width="30"
+          stroke-dasharray="25.1 351.9" stroke-dashoffset="-326.7" transform="rotate(-90 120 120)"/>
+        <text x="120" y="116" text-anchor="middle" font-family="Fraunces" font-size="22" fill="#20231e" font-weight="700">4</text>
+        <text x="120" y="136" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#726f5f">bidang</text>
+      </svg>
+      <div>
+        <div class="dash-legend">
+          <div class="row"><span class="dot" style="background:#3c6b2f;"></span>Abdi Karya FC (Olahraga)<strong>43%</strong></div>
+          <div class="row"><span class="dot" style="background:#e2b23d;"></span>Abdi Karya Peduli (Sosial)<strong>29%</strong></div>
+          <div class="row"><span class="dot" style="background:#b5502f;"></span>Abdi Karya Fest (Budaya)<strong>21%</strong></div>
+          <div class="row"><span class="dot" style="background:#1f3a1e;"></span>Bank Jelantah (Lingkungan)<strong>7%</strong></div>
         </div>
-    </section>
+        <p class="dash-note">*Ilustrasi pembagian fokus kegiatan — akan diperbarui dengan data riil setiap triwulan.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Karang Taruna Abdi Karya. Pemuda Bergerak. Desa Berdampak.</p>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Kontak Kami</div>
+      <h2>Mari Terhubung</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-row">
+          <span class="icon">✉</span>
+          <a href="mailto:karangtaruna@desamaju.id">karangtaruna@desamaju.id</a>
         </div>
-    </footer>
+        <div class="contact-row">
+          <span class="icon">☎</span>
+          <a href="tel:+622112345678">(021) 1234-5678</a>
+        </div>
+        <div class="contact-row">
+          <span class="icon">⌂</span>
+          <span>Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus</span>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3 style="font-size:1rem;margin-bottom:12px;">Jam Layanan Sekretariat</h3>
+        <p style="font-size:.92rem;color:#4a4a3f;">Senin–Jumat, 16.00–20.00 WIB<br>Sabtu, 09.00–12.00 WIB</p>
+        <p style="font-size:.85rem;color:#726f5f;margin-top:12px;">Di luar jam tersebut, silakan hubungi kami lewat email atau telepon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <strong>Karang Taruna Abdi Karya</strong> · Pemuda Bergerak. Desa Berdampak.</p>
+  </div>
+</footer>
+
+<script>
+  // Nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ---------- CALENDAR ----------
+  const monthNames = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+  const dowNames = ["Min","Sen","Sel","Rab","Kam","Jum","Sab"];
+
+  // Sample events keyed by "YYYY-M-D" (month is 0-indexed to match JS Date)
+  const events = {
+    "2026-6-3":  {title:"Latihan Abdi Karya FC", time:"16.00 WIB", place:"Lapangan Desa"},
+    "2026-6-6":  {title:"Sedekah Subuh Mingguan", time:"05.00 WIB", place:"Sekretariat"},
+    "2026-6-10": {title:"Setor Bank Jelantah", time:"09.00 WIB", place:"Balai Desa"},
+    "2026-6-13": {title:"Latihan Abdi Karya FC", time:"16.00 WIB", place:"Lapangan Desa"},
+    "2026-6-18": {title:"Rapat Pengurus Bulanan", time:"19.30 WIB", place:"Sekretariat"},
+    "2026-6-22": {title:"Persiapan Abdi Karya Fest", time:"20.00 WIB", place:"Balai Pemuda"},
+    "2026-6-27": {title:"Latihan Abdi Karya FC", time:"16.00 WIB", place:"Lapangan Desa"}
+  };
+
+  let viewYear = 2026, viewMonth = 6; // Juli 2026 (0-indexed)
+  const today = new Date();
+
+  function renderDows(){
+    const el = document.getElementById('calDows');
+    el.innerHTML = dowNames.map(d => `<div class="cal-dow">${d}</div>`).join('');
+  }
+
+  function renderCalendar(){
+    document.getElementById('calMonthLabel').textContent = `${monthNames[viewMonth]} ${viewYear}`;
+    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+    const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
+    const el = document.getElementById('calDays');
+    let html = '';
+    for(let i=0;i<firstDay;i++) html += `<div class="cal-day blank"></div>`;
+    for(let d=1; d<=daysInMonth; d++){
+      const key = `${viewYear}-${viewMonth}-${d}`;
+      const hasEvent = events[key] ? 'has-event' : '';
+      const isToday = (viewYear===today.getFullYear() && viewMonth===today.getMonth() && d===today.getDate()) ? 'today' : '';
+      html += `<div class="cal-day ${hasEvent} ${isToday}" data-key="${key}">${d}</div>`;
+    }
+    el.innerHTML = html;
+
+    el.querySelectorAll('.cal-day.has-event').forEach(cell => {
+      cell.addEventListener('click', () => {
+        el.querySelectorAll('.cal-day').forEach(c=>c.classList.remove('selected'));
+        cell.classList.add('selected');
+        showEvent(cell.dataset.key);
+      });
+    });
+  }
+
+  function showEvent(key){
+    const ev = events[key];
+    const panel = document.getElementById('eventList');
+    if(!ev){ panel.innerHTML = `<p class="event-empty">Tidak ada kegiatan pada tanggal ini.</p>`; return; }
+    const [y,m,d] = key.split('-');
+    panel.innerHTML = `
+      <div class="event-item">
+        <div class="event-date">${d} ${monthNames[m].slice(0,3)}</div>
+        <div class="event-detail">
+          <h5>${ev.title}</h5>
+          <span>${ev.time} · ${ev.place}</span>
+        </div>
+      </div>`;
+  }
+
+  function renderUpcomingList(){
+    const panel = document.getElementById('eventList');
+    const keys = Object.keys(events)
+      .filter(k => {
+        const [y,m] = k.split('-').map(Number);
+        return y > viewYear || (y===viewYear && m===viewMonth);
+      })
+      .sort((a,b)=> parseInt(a.split('-')[2]) - parseInt(b.split('-')[2]));
+    if(keys.length===0){ panel.innerHTML = `<p class="event-empty">Belum ada kegiatan terjadwal bulan ini.</p>`; return; }
+    panel.innerHTML = keys.map(key=>{
+      const ev = events[key];
+      const d = key.split('-')[2];
+      return `<div class="event-item">
+        <div class="event-date">${d} ${monthNames[viewMonth].slice(0,3)}</div>
+        <div class="event-detail"><h5>${ev.title}</h5><span>${ev.time} · ${ev.place}</span></div>
+      </div>`;
+    }).join('');
+  }
+
+  document.getElementById('calPrev').addEventListener('click', () => {
+    viewMonth--; if(viewMonth<0){viewMonth=11; viewYear--;}
+    renderCalendar(); renderUpcomingList();
+  });
+  document.getElementById('calNext').addEventListener('click', () => {
+    viewMonth++; if(viewMonth>11){viewMonth=0; viewYear++;}
+    renderCalendar(); renderUpcomingList();
+  });
+
+  renderDows();
+  renderCalendar();
+  renderUpcomingList();
+</script>
 </body>
 </html>
