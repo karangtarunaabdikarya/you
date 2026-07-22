@@ -6,289 +6,7 @@
 <title>Karang Taruna Abdi Karya — Pemuda Bergerak. Desa Berdampak.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --biru-benhur:#0B6EC4;
-    --biru-benhur-light:#3FA0E8;
-    --biru-benhur-pale:#E8F3FC;
-    --biru-dongker:#0A2647;
-    --biru-dongker-2:#123A66;
-    --kuning-emas:#E7A93A;
-    --kuning-emas-light:#F5C766;
-    --putih:#FFFFFF;
-    --off-white:#F6F9FC;
-    --hitam:#1B1F27;
-    --abu:#5B6472;
-    --radius-lg:22px;
-    --radius-md:14px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',sans-serif;
-    color:var(--hitam);
-    background:var(--off-white);
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,h4{font-family:'Sora',sans-serif;letter-spacing:-0.01em;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  img,svg{display:block;max-width:100%;}
-  a{text-decoration:none;color:inherit;}
-  ul{list-style:none;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:14px 26px;border-radius:999px;
-    font-weight:700;font-size:15px;font-family:'Sora',sans-serif;
-    cursor:pointer;border:none;transition:transform .18s ease, box-shadow .18s ease;
-    white-space:nowrap;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-gold{background:linear-gradient(135deg,var(--kuning-emas-light),var(--kuning-emas));color:var(--biru-dongker);box-shadow:0 8px 22px rgba(231,169,58,.35);}
-  .btn-gold:hover{box-shadow:0 12px 28px rgba(231,169,58,.45);}
-  .btn-outline-white{border:1.5px solid rgba(255,255,255,.55);color:#fff;background:transparent;}
-  .btn-outline-white:hover{background:rgba(255,255,255,.12);}
-  .btn-navy{background:var(--biru-dongker);color:#fff;}
-  .btn-navy:hover{background:var(--biru-dongker-2);}
-  .btn-ghost-navy{border:1.5px solid var(--biru-dongker);color:var(--biru-dongker);background:transparent;}
-  .btn-ghost-navy:hover{background:var(--biru-dongker);color:#fff;}
-
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;
-    letter-spacing:.06em;text-transform:uppercase;
-    color:var(--biru-benhur);
-  }
-  .eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--kuning-emas);display:inline-block;transform:rotate(45deg);}
-
-  /* ===== NAVBAR ===== */
-  #navbar{
-    position:sticky;top:0;z-index:100;
-    background:rgba(10,38,71,.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-    transition:padding .25s ease;
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
-  .logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:16.5px;}
-  .logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--biru-benhur-light),var(--biru-benhur));display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;}
-  .logo-mark::after{content:"";position:absolute;width:12px;height:12px;background:var(--kuning-emas);transform:rotate(45deg);border-radius:2px;bottom:-4px;right:-4px;}
-  .logo small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:10.5px;color:var(--kuning-emas-light);letter-spacing:.04em;}
-  .nav-links{display:flex;align-items:center;gap:26px;}
-  .nav-links a{color:rgba(255,255,255,.82);font-size:14px;font-weight:500;position:relative;padding:6px 0;}
-  .nav-links a:hover{color:#fff;}
-  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--kuning-emas);transition:width .2s ease;}
-  .nav-links a:hover::after{width:100%;}
-  .nav-cta{display:flex;align-items:center;gap:12px;}
-  .nav-cta .btn{padding:10px 18px;font-size:13.5px;}
-  #navToggle{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;}
-  @media (max-width:960px){
-    .nav-links{display:none;}
-    .nav-cta .btn-outline-white{display:none;}
-    #navToggle{display:block;}
-  }
-
-  /* ===== HERO ===== */
-  #hero{
-    position:relative;overflow:hidden;
-    background:radial-gradient(ellipse 120% 80% at 15% -10%, var(--biru-benhur-light) 0%, transparent 55%),
-               linear-gradient(160deg, var(--biru-benhur) 0%, var(--biru-dongker) 78%);
-    padding:76px 0 0;
-    color:#fff;
-  }
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-bottom:64px;}
-  .hero-badge{
-    display:inline-flex;align-items:center;gap:9px;
-    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-    padding:8px 16px;border-radius:999px;font-size:12.5px;font-weight:600;
-    margin-bottom:22px;
-  }
-  .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--kuning-emas);box-shadow:0 0 0 4px rgba(231,169,58,.25);}
-  h1.hero-title{font-size:clamp(34px,4.6vw,54px);font-weight:800;line-height:1.08;margin-bottom:20px;}
-  h1.hero-title .accent{color:var(--kuning-emas-light);}
-  .hero-sub{font-size:16.5px;line-height:1.65;color:rgba(255,255,255,.82);max-width:520px;margin-bottom:32px;}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
-  .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.16);padding-top:26px;}
-  .hero-stats .stat{border-left:1px solid rgba(255,255,255,.16);padding-left:16px;}
-  .hero-stats .stat:first-child{border-left:none;padding-left:0;}
-  .hero-stats .num{font-family:'Sora',sans-serif;font-weight:800;font-size:26px;color:var(--kuning-emas-light);}
-  .hero-stats .label{font-size:11.5px;color:rgba(255,255,255,.68);margin-top:3px;line-height:1.3;}
-
-  .hero-visual{position:relative;height:460px;}
-  .hv-card{
-    position:absolute;border-radius:var(--radius-md);
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
-    backdrop-filter:blur(6px);
-    display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
-    box-shadow:0 20px 45px rgba(6,20,40,.35);
-  }
-  .hv-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:auto;}
-  .hv-tag{font-size:12px;font-weight:700;font-family:'Sora',sans-serif;}
-  .hv-1{top:0;left:8%;width:52%;height:230px;background:linear-gradient(150deg, rgba(231,169,58,.9), rgba(231,169,58,.55));border:none;}
-  .hv-1 .hv-icon{background:rgba(10,38,71,.25);}
-  .hv-2{top:14%;right:0;width:42%;height:150px;}
-  .hv-3{bottom:14%;left:0;width:38%;height:160px;}
-  .hv-4{bottom:0;right:6%;width:48%;height:190px;background:rgba(10,38,71,.55);}
-  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-  .hv-2{animation:floaty 5.5s ease-in-out infinite;}
-  .hv-3{animation:floaty 6.5s ease-in-out infinite 1s;}
-  .hv-4{animation:floaty 6s ease-in-out infinite .4s;}
-
-  .hero-wave{display:block;width:100%;height:60px;margin-top:20px;}
-
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr;padding-bottom:40px;}
-    .hero-visual{height:340px;margin-top:10px;}
-    .hero-stats{grid-template-columns:repeat(2,1fr);row-gap:20px;}
-    .hero-stats .stat:nth-child(3){border-left:none;padding-left:0;}
-  }
-
-  /* ===== SECTION SHARED ===== */
-  section{padding:88px 0;}
-  .section-head{max-width:640px;margin-bottom:48px;}
-  .section-head h2{font-size:clamp(26px,3vw,36px);font-weight:800;margin-top:14px;color:var(--biru-dongker);line-height:1.15;}
-  .section-head p{color:var(--abu);font-size:15.5px;margin-top:14px;line-height:1.65;}
-  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
-
-  /* Dari Pemuda Untuk Desa */
-  #esensi{background:#fff;}
-  .esensi-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;}
-  .esensi-quote{
-    font-family:'Sora',sans-serif;font-weight:700;font-size:26px;line-height:1.35;
-    color:var(--biru-dongker);border-left:4px solid var(--kuning-emas);padding-left:22px;
-  }
-  .esensi-values{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
-  .val-chip{display:flex;align-items:center;gap:10px;background:var(--biru-benhur-pale);padding:12px 14px;border-radius:12px;font-size:13.5px;font-weight:600;color:var(--biru-dongker);}
-  .val-chip .dot{width:8px;height:8px;background:var(--kuning-emas);border-radius:2px;transform:rotate(45deg);flex-shrink:0;}
-  .esensi-panel{background:linear-gradient(160deg,var(--biru-dongker),var(--biru-dongker-2));border-radius:var(--radius-lg);padding:34px;color:#fff;position:relative;overflow:hidden;}
-  .esensi-panel::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(231,169,58,.25),transparent 70%);}
-  .esensi-panel h3{font-size:15px;color:var(--kuning-emas-light);margin-bottom:16px;font-weight:700;}
-  .esensi-panel ol{counter-reset:m;display:flex;flex-direction:column;gap:14px;}
-  .esensi-panel li{counter-increment:m;display:flex;gap:14px;font-size:13.8px;line-height:1.55;color:rgba(255,255,255,.88);}
-  .esensi-panel li::before{content:counter(m,decimal-leading-zero);font-family:'JetBrains Mono',monospace;color:var(--kuning-emas-light);font-weight:600;font-size:13px;flex-shrink:0;}
-
-  /* Program Unggulan */
-  #program{background:var(--off-white);}
-  .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .prog-card{
-    background:#fff;border-radius:var(--radius-lg);padding:26px;
-    border:1px solid #EAEFF5;position:relative;overflow:hidden;
-    transition:transform .22s ease, box-shadow .22s ease;
-  }
-  .prog-card:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(10,38,71,.1);}
-  .prog-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,var(--biru-benhur),var(--kuning-emas));}
-  .prog-icon{width:48px;height:48px;border-radius:13px;background:var(--biru-benhur-pale);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
-  .prog-card h4{font-size:17px;color:var(--biru-dongker);margin-bottom:4px;}
-  .prog-field{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--biru-benhur);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:block;}
-  .prog-card p{font-size:13.8px;color:var(--abu);line-height:1.6;margin-bottom:18px;}
-  .prog-link{font-size:13px;font-weight:700;color:var(--biru-dongker);display:inline-flex;align-items:center;gap:6px;}
-  .prog-link svg{transition:transform .2s ease;}
-  .prog-card:hover .prog-link svg{transform:translateX(4px);}
-  @media (max-width:900px){.program-grid{grid-template-columns:1fr 1fr;}}
-  @media (max-width:620px){.program-grid{grid-template-columns:1fr;}}
-
-  /* Bidang Kerja strip */
-  #bidang{background:var(--biru-dongker);color:#fff;}
-  #bidang .section-head h2{color:#fff;}
-  #bidang .section-head p{color:rgba(255,255,255,.65);}
-  #bidang .eyebrow{color:var(--kuning-emas-light);}
-  #bidang .eyebrow::before{background:var(--biru-benhur-light);}
-  .bidang-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
-  .bidang-item{
-    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-    border-radius:14px;padding:18px 14px;text-align:left;transition:background .2s ease;
-  }
-  .bidang-item:hover{background:rgba(255,255,255,.09);}
-  .bidang-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--kuning-emas-light);}
-  .bidang-item h5{font-size:13.5px;margin-top:8px;font-weight:600;line-height:1.35;}
-  @media (max-width:900px){.bidang-grid{grid-template-columns:repeat(3,1fr);}}
-  @media (max-width:560px){.bidang-grid{grid-template-columns:repeat(2,1fr);}}
-
-  /* Roadmap teaser */
-  #roadmap{background:#fff;}
-  .roadmap-track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:20px;}
-  .roadmap-track::before{content:"";position:absolute;top:19px;left:0;right:0;height:2px;background:#E4EAF2;}
-  .rm-step{position:relative;padding-top:44px;padding-right:16px;}
-  .rm-dot{position:absolute;top:8px;left:0;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--biru-benhur);display:flex;align-items:center;justify-content:center;}
-  .rm-step:first-child .rm-dot{background:var(--kuning-emas);border-color:var(--kuning-emas);}
-  .rm-year{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--biru-benhur);font-weight:600;letter-spacing:.04em;}
-  .rm-step h5{font-size:14.5px;color:var(--biru-dongker);margin:6px 0 6px;}
-  .rm-step p{font-size:12.8px;color:var(--abu);line-height:1.5;}
-  @media (max-width:900px){
-    .roadmap-track{grid-template-columns:1fr;gap:28px;}
-    .roadmap-track::before{top:0;bottom:0;left:11px;width:2px;height:auto;right:auto;}
-    .rm-step{padding-top:0;padding-left:38px;}
-    .rm-dot{top:2px;}
-  }
-
-  /* Layanan Surat CTA band */
-  #layanan{
-    background:linear-gradient(120deg,var(--biru-benhur),var(--biru-benhur-light));
-    color:#fff;position:relative;overflow:hidden;
-  }
-  #layanan::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 60L60 0' stroke='rgba(255,255,255,0.08)' stroke-width='2'/%3E%3C/svg%3E");opacity:.5;}
-  .layanan-inner{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;}
-  .layanan-inner h2{font-size:clamp(24px,2.8vw,32px);font-weight:800;margin-bottom:14px;}
-  .layanan-inner p{font-size:15px;color:rgba(255,255,255,.88);line-height:1.6;max-width:520px;margin-bottom:22px;}
-  .layanan-note{font-size:12.5px;color:rgba(255,255,255,.7);border-left:2px solid var(--kuning-emas);padding-left:12px;max-width:480px;}
-  .layanan-card{background:#fff;border-radius:var(--radius-lg);padding:26px;color:var(--hitam);}
-  .layanan-card .step{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #EEF2F7;}
-  .layanan-card .step:last-child{border-bottom:none;}
-  .layanan-card .step-n{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--biru-benhur);font-size:12px;background:var(--biru-benhur-pale);width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .layanan-card .step-t{font-size:13.3px;font-weight:600;color:var(--biru-dongker);}
-  .layanan-card .step-d{font-size:12px;color:var(--abu);margin-top:2px;}
-  @media (max-width:900px){.layanan-inner{grid-template-columns:1fr;}}
-
-  /* Admin promo */
-  #admin-promo{background:radial-gradient(ellipse 100% 100% at 80% 0%, #163B67 0%, var(--biru-dongker) 60%);color:#fff;}
-  .ap-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center;}
-  .ap-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(231,169,58,.14);border:1px solid rgba(231,169,58,.35);color:var(--kuning-emas-light);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:700;font-family:'JetBrains Mono',monospace;margin-bottom:18px;}
-  .ap-grid h2{font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.2;margin-bottom:14px;}
-  .ap-grid > div > p{color:rgba(255,255,255,.7);font-size:14.5px;line-height:1.65;max-width:460px;margin-bottom:26px;}
-  .ap-features{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:28px;}
-  .ap-feat{display:flex;align-items:center;gap:9px;font-size:13.3px;color:rgba(255,255,255,.85);}
-  .ap-feat svg{flex-shrink:0;}
-  .ap-mock{background:#fff;border-radius:18px;padding:20px;box-shadow:0 30px 60px rgba(0,0,0,.35);}
-  .ap-mock-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
-  .ap-mock-top .t1{font-size:11px;color:var(--abu);font-family:'JetBrains Mono',monospace;}
-  .ap-mock-top .t2{font-size:14px;font-weight:700;color:var(--biru-dongker);font-family:'Sora',sans-serif;}
-  .ap-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px;}
-  .ap-stat{background:var(--off-white);border-radius:12px;padding:13px;}
-  .ap-stat .n{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;color:var(--biru-dongker);}
-  .ap-stat .l{font-size:10.5px;color:var(--abu);margin-top:2px;}
-  .ap-bar-row{display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--abu);padding:6px 0;}
-  .ap-bar{flex:1;height:6px;background:#EDF1F6;border-radius:4px;overflow:hidden;}
-  .ap-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--biru-benhur),var(--kuning-emas));border-radius:4px;}
-  @media (max-width:900px){.ap-grid{grid-template-columns:1fr;}.ap-features{grid-template-columns:1fr;}}
-
-  /* Kolaborasi + kontak CTA */
-  #kolaborasi{background:#fff;text-align:center;}
-  #kolaborasi .section-head{margin:0 auto 26px;}
-  .kolab-partners{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:34px;}
-  .kolab-tag{font-size:12.5px;font-weight:600;color:var(--biru-dongker);background:var(--biru-benhur-pale);padding:8px 16px;border-radius:999px;}
-  #kolaborasi .ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
-
-  /* Footer */
-  footer{background:var(--hitam);color:rgba(255,255,255,.7);padding:60px 0 24px;}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px;}
-  .foot-brand .logo{color:#fff;margin-bottom:14px;}
-  .foot-tagline{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--kuning-emas-light);margin-bottom:8px;}
-  .foot-brand p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.55);max-width:280px;}
-  .foot-col h6{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--biru-benhur-light);margin-bottom:16px;}
-  .foot-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:11px;}
-  .foot-col a:hover{color:#fff;}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:rgba(255,255,255,.4);}
-  @media (max-width:800px){.foot-grid{grid-template-columns:1fr 1fr;}}
-
-  /* Reveal on scroll */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
-
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none !important;transition:none !important;}
-  }
-  :focus-visible{outline:2.5px solid var(--kuning-emas);outline-offset:2px;}
-</style>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -309,8 +27,7 @@
       <a href="#kontak">Kontak</a>
     </div>
     <div class="nav-cta">
-      <a href="#layanan" class="btn btn-outline-white">Ajukan Surat</a>
-      <a href="#admin-promo" class="btn btn-gold">Login Admin</a>
+      <a href="#layanan" class="btn btn-gold">Ajukan Surat</a>
     </div>
     <button id="navToggle" aria-label="Buka menu">&#9776;</button>
   </div>
@@ -518,38 +235,6 @@
   </div>
 </section>
 
-<!-- ===== ADMIN PROMO ===== -->
-<section id="admin-promo">
-  <div class="wrap ap-grid">
-    <div class="reveal">
-      <div class="ap-badge">ABDI KARYA CONTROL CENTER</div>
-      <h2>Kelola Abdi Karya lebih terorganisir.</h2>
-      <p>Di balik setiap kegiatan yang berdampak, terdapat sistem yang tertata. Satu dashboard untuk mengelola anggota, program kerja, agenda, pengajuan surat, dokumentasi, mitra, dan evaluasi dampak.</p>
-      <div class="ap-features">
-        <div class="ap-feat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5C766" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Anggota</div>
-        <div class="ap-feat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5C766" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Program Kerja</div>
-        <div class="ap-feat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5C766" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Kalender Kegiatan</div>
-        <div class="ap-feat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5C766" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Pengajuan Surat</div>
-        <div class="ap-feat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5C766" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Mitra &amp; Donatur</div>
-        <div class="ap-feat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5C766" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Evaluasi &amp; Laporan</div>
-      </div>
-      <a href="#" class="btn btn-gold">Masuk Dashboard Admin</a>
-    </div>
-    <div class="ap-mock reveal" aria-hidden="true">
-      <div class="ap-mock-top"><span class="t2">Abdi Karya Control Center</span><span class="t1">22 Jul 2026</span></div>
-      <div class="ap-stat-grid">
-        <div class="ap-stat"><div class="n">24</div><div class="l">Anggota Aktif</div></div>
-        <div class="ap-stat"><div class="n">8</div><div class="l">Agenda Bulan Ini</div></div>
-        <div class="ap-stat"><div class="n">10</div><div class="l">Program Aktif</div></div>
-        <div class="ap-stat"><div class="n">12</div><div class="l">Pengajuan Surat Baru</div></div>
-      </div>
-      <div class="ap-bar-row"><span style="width:110px">Realisasi Program</span><div class="ap-bar"><span style="width:78%"></span></div><span>78%</span></div>
-      <div class="ap-bar-row"><span style="width:110px">Kehadiran Pengurus</span><div class="ap-bar"><span style="width:91%"></span></div><span>91%</span></div>
-      <div class="ap-bar-row"><span style="width:110px">Target Anggota</span><div class="ap-bar"><span style="width:120%;max-width:100%"></span></div><span>120%</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== KOLABORASI ===== -->
 <section id="kolaborasi">
   <div class="wrap">
@@ -581,7 +266,7 @@
       <div class="foot-brand">
         <a class="logo" href="#hero"><span class="logo-mark"></span><span>Abdi Karya</span></a>
         <div class="foot-tagline">Pemuda Bergerak. Desa Berdampak.</div>
-        <p>Karang Taruna Abdi Karya, Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus.</p>
+        <p>Karang Taruna Abdi Karya, Desa Peganjaran, Kecamatan Bae, Kabupaten Kudus, Jawa Tengah, Indonesia.</p>
       </div>
       <div class="foot-col">
         <h6>Jelajahi</h6>
@@ -593,20 +278,20 @@
       <div class="foot-col">
         <h6>Layanan</h6>
         <a href="#layanan">Pengajuan Surat</a>
-        <a href="#">Lacak Pengajuan</a>
-        <a href="#admin-promo">Dashboard Admin</a>
+        <a href="#layanan">Lacak Pengajuan</a>
+        <a href="#kolaborasi">Kolaborasi</a>
         <a href="#">Transparansi</a>
       </div>
       <div class="foot-col">
         <h6>Kontak</h6>
-        <a href="#">Instagram &#8599;</a>
-        <a href="#">TikTok &#8599;</a>
-        <a href="#">WhatsApp &#8599;</a>
-        <a href="#">Email &#8599;</a>
+        <a href="https://www.instagram.com/karangtaruna_abdikarya/" target="_blank" rel="noopener">Instagram &#8599;</a>
+        <a href="https://www.tiktok.com/@karangtaruna_abdikarya" target="_blank" rel="noopener">TikTok &#8599;</a>
+        <a href="mailto:karangtarunaabdikarya25@gmail.com">Email &#8599;</a>
+        <a href="#kontak">Desa Peganjaran, Kec. Bae, Kab. Kudus</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>&copy; 2026 Karang Taruna Abdi Karya — Desa Peganjaran.</span>
+      <span>&copy; 2026 Karang Taruna Abdi Karya — Desa Peganjaran, Kec. Bae, Kab. Kudus, Jawa Tengah.</span>
       <span>Dibangun untuk pemuda, oleh pemuda.</span>
     </div>
   </div>
